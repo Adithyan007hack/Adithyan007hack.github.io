@@ -1,1 +1,82 @@
-Hello World
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>My Info</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <div class="info">
+        <h4 id="date"></h4>
+        <h1 id="greeting"></h1>
+    </div>
+    <div class="container">
+        <div class="head">
+            <p>> ~/ <span class="blinking">_</span></p>
+        </div>
+
+        <div class="bookmarks">
+            <div class="category">
+                <div class="links">
+                    <li class="title">work</li>
+                    <li><a href="youtube.com">youtube</a></li>
+                    
+                </div>
+            </div>
+
+            <div class="category">
+                <div class="links">
+                    <li class="title">dev</li>
+                    <li><a href="https://github.com/">github</a></li>
+                    
+                </div>
+            </div>
+
+            
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+
+<script>
+    let $ = document.querySelector.bind(document);
+
+    function date() {
+        let currentDate = new Date();
+        let dateOptions = {
+            weekday: "long",
+            year: "numeric",
+            month: "long",
+            day: "numeric"
+        };
+        let date = currentDate.toLocaleDateString("en-GB", dateOptions);
+        $('#date').innerHTML = date;
+    }
+
+    function greet() {
+        let currentTime = new Date();
+        let greet = Math.floor(currentTime.getHours() / 6);
+        switch (greet) {
+            case 0:
+                $('#greeting').innerHTML = "Good night!";
+                break;
+            case 1:
+                $('#greeting').innerHTML = "Good morning!";
+                break;
+            case 2:
+                $('#greeting').innerHTML = "Good afternoon!";
+                break;
+            case 3:
+                $('#greeting').innerHTML = "Good evening!";
+                break;
+        }
+    }
+    date();
+    greet();
+</script>
